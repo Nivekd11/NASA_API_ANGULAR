@@ -1,0 +1,22 @@
+<section class="backgrond">
+    <video class="background-video" src="assets/video/earth.mp4" autoplay loop muted></video>
+    <div class="login-container">
+        <img src="assets/img/NASA_logo.png" alt="">
+        <h1>NASA API</h1> 
+        <form [formGroup]="form" (submit)="logIn()">
+            <div>
+                <label >Usuario: </label>
+                <input type="text" placeholder="Escribe un nombre de usuario" formControlName="user" lettersNumberOnly="">
+            </div>
+            <div>
+                <label >Contraseña: </label>
+                <input type="text" placeholder="Escribe una contraseña" formControlName="password">
+            </div> 
+            <div *ngIf="message">
+                <p>El usuario y/o la contraseña son incorrectas</p>
+            </div>
+            <button class="button-pink-not-border" type="submit" [disabled]="!form.valid">Ingresar</button>       
+        </form>
+    </div>
+    
+</section>

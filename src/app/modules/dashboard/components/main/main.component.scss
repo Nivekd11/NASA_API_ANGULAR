@@ -1,0 +1,88 @@
+
+
+.main-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    color: white;
+    
+    h1{
+        font-size: 60px;
+        margin-bottom: 0.5rem;
+        span{
+            color: #d0318e;
+        }
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        a{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: azure;  
+            background-color: #d0318e97;
+            width: 30%;
+            flex-direction: column;
+            
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.5s ease-in-out;
+            &:hover{
+                background-color: #d0318e;
+            }
+        }
+    }
+    div:nth-child(2){
+        overflow: hidden;
+        img{
+            width: 80%;
+            margin-top: 10rem;
+        }
+    }
+    
+}
+.img-decoration{
+    // transition: all 3s ease-in-out;
+    animation-duration: 3s ;
+    animation-name: zommInAndOut;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: -1;
+}
+
+@keyframes zommInAndOut {
+    0%{
+        
+        transform: rotateZ(-10deg);
+        
+    }
+    50%{
+        transform: scale(0.0001);
+        transform: translateY(-10rem);
+        transform: rotateZ(20deg);
+        
+        
+    }
+    100%{
+        
+        
+        transform: translateY(-70rem);
+        
+        
+        
+    }
+}
+
+@media (max-width:768px){
+    .main-container{
+        grid-template-columns: 100%;
+        div:nth-child(2){
+            grid-row: 1;
+        }
+    }
+    
+}

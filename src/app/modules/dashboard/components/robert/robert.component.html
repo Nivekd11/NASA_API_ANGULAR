@@ -1,0 +1,27 @@
+<app-nav></app-nav>
+<section class="date-form-container">
+    <form [formGroup]="form" (submit)="searchImage()">
+        <label >Buscar por fecha:</label>
+        <input type="date" min="2012-08-07" formControlName="dateT">
+        <button class="button-pink-not-border"type="submit">Buscar</button>
+    </form>
+</section>
+<ng-container *ngIf="items">
+    <section class="items-container">
+        <ng-container  *ngFor="let item of items">
+            <div>
+                <h2>{{item.camera.full_name}}</h2>
+                <a href="{{item.img_src}}" target="_blank">
+                    <img src="{{item.img_src}}" alt="">
+                </a>
+                <p>{{item.earth_date | time}}</p>
+            </div>
+        </ng-container>
+        
+    </section>
+</ng-container>
+<ng-template *ngIf="!items">
+    <section>
+        <h3>No hay imagenes para esta fecha</h3>
+    </section>
+</ng-template>

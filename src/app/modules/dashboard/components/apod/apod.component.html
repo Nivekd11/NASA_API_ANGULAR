@@ -1,0 +1,43 @@
+
+<app-nav></app-nav>
+<section class="date-form-container">
+    <h1>Imagen Astronómica del día</h1>
+    <form [formGroup]="form" (submit)="searchItems()">
+        <label >De:</label>
+        <input type="date" min="2012-08-07" formControlName="startDate">
+        <label >a:</label>
+        <input type="date" min="2012-08-07" formControlName="endDate">
+        <button class="button-pink-not-border"type="submit">Buscar</button>
+    </form>
+</section>
+<ng-container *ngIf="items">
+    <section class="items-container">
+        <ng-container  *ngFor="let item of items;let i = index">
+            <div>
+                <h2>{{item.title}}</h2>
+                    <ng-container *ngIf="item.type=='image'">
+                        <a href="{{item.url}}" target="_blank">
+                            <img src="{{item.url}}" alt="">
+                        </a>
+                    </ng-container>
+                    <ng-container *ngIf="item.type=='video'">
+                        <!-- <iframe [width]="300" [height]="300" src="{{item.url}}" title="Planets of the Solar System: Tilts and Spins" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                        <youtube-player
+                        videoId="{{cleanUrl(item.url)}}"
+                        suggestedQuality="highres"
+                        [height]="300"
+                        [width]="300"
+                        [startSeconds]="4"
+                        [endSeconds]="8">
+                        </youtube-player>
+                    </ng-container>
+                
+                <p>{{item.explanation}}</p>
+                <p>{{item.date | time}}</p>
+                <p>{{item.author}}</p>
+                
+            </div>
+        </ng-container>
+        
+    </section>
+</ng-container>

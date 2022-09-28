@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: auto;
+    background-color: #21242C;
+    font-family: 'Roboto';
+}
+
+.button-pink-not-border{
+    border: none;
+    font-size: 18px;
+    background-color: #21242C;
+    color: aliceblue;
+    height: 45px;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    border: 3px solid #d0318e;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        cursor: pointer;
+        -webkit-box-shadow: 0px 3px 46px -17px rgba(230,159,201,1);
+        -moz-box-shadow: 0px 3px 46px -17px rgba(230,159,201,1);
+        box-shadow: 0px 3px 46px -17px rgba(230,159,201,1);
+    }
+}
+
+input[type="date"]{
+    width: 30%;
+    background-color: #d0318e;
+    padding: 0.5rem;
+    color: aliceblue;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    font-size: 18px;
+    
+
+}
+::-webkit-calendar-picker-indicator{
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    transition: all 0.5s ease-in-out;
+    &:hover{
+        cursor: pointer;
+        background-color: #ef9ccc;
+    }
+    
+}
