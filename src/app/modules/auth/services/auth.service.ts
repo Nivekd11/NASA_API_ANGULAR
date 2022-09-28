@@ -11,7 +11,7 @@ export class AuthService {
   public auth: boolean = false
   
   generateToken(user:string,password:string){
-    if(user!=='kevin' || password !=="hola123"){
+    if(user!=='root' || password !=="root"){
       localStorage.setItem("auth","false")
       this.auth=false
     }else{
