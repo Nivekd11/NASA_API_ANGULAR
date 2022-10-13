@@ -6,22 +6,23 @@
         <button class="button-pink-not-border"type="submit">Buscar</button>
     </form>
 </section>
-<ng-container *ngIf="items">
-    <section class="items-container">
-        <ng-container  *ngFor="let item of items">
-            <div>
-                <h2>{{item.camera.full_name}}</h2>
-                <a href="{{item.img_src}}" target="_blank">
-                    <img src="{{item.img_src}}" alt="">
-                </a>
-                <p>{{item.earth_date | time}}</p>
-            </div>
-        </ng-container>
-        
-    </section>
+<ng-container *ngIf="!flag">
+    <ng-container *ngIf="items">
+        <section class="items-container">
+            <ng-container  *ngFor="let item of items">
+                <div>
+                    <h2>{{item.title}}</h2>
+                    <!-- <a href="{{item.img_src}}" target="_blank"> -->
+                        <img src="{{item.url}}" alt="" (click)="openDialog(item)">
+                    <!-- </a> -->
+                    <p class="pink-element">{{item.date | time}}</p>
+                </div>
+            </ng-container>
+            
+        </section>
+    </ng-container>
 </ng-container>
-<ng-template *ngIf="!items">
-    <section>
-        <h3>No hay imagenes para esta fecha</h3>
-    </section>
-</ng-template>
+<ng-container *ngIf="flag">
+    
+    <app-error-search></app-error-search>
+</ng-container>

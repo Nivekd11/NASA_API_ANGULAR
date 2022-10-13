@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchInterceptor } from './modules/services/interceptors/search.interceptor';
 import { SharedModule } from './modules/shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorSearchComponent } from './modules/shared/components/error-search/error-search.component';
 
 
 
@@ -20,6 +22,7 @@ import { SharedModule } from './modules/shared/shared.module';
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass : SearchInterceptor, multi: true

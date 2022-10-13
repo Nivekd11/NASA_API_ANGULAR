@@ -1,0 +1,19 @@
+<div mat-dialog-actions class="close-position">
+    <button mat-button (click)="onNoClick()">X</button>
+    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</div>
+<a class="banner-container" [href]="data.url" target="_blank">
+    <img class="banner" [src]="data.url" alt="">
+</a>
+<div class="information-container">
+    <h1 mat-dialog-title>Hi {{data.title}}</h1>
+      <p>{{data.explanation}}</p>
+      <p class="pink-element">{{data.date}}</p>
+      <p>{{data.author}}</p>
+</div>
+  <!-- <p>What's your favorite animal?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field> -->
+

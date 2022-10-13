@@ -27,7 +27,7 @@
 
 .items-container{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 1rem;
     color: aliceblue;
     margin-top: 1rem;
@@ -45,22 +45,40 @@
             border-radius: 0.5rem;
             width: 300px;
             height: 300px;
-            -webkit-box-shadow: 10px 10px 12px -10px rgba(0,0,0,0.75);
+            margin-bottom: 10px;
+            transition: all 0.5s ease-in-out;
+            &:hover{
+
+                cursor: pointer;
+                -webkit-box-shadow: 10px 10px 12px -10px rgba(0,0,0,0.75);
             -moz-box-shadow: 10px 10px 12px -10px rgba(0,0,0,0.75);
             box-shadow: 10px 10px 12px -10px rgba(0,0,0,0.75);
+            }
         }
     }
 }
 
+
+
 @media (max-width:1100px){
     .items-container{
         grid-template-columns:repeat(2,1fr);
-        
+        div{
+            overflow: hidden;
+        }
     }
     
 }
 
 @media (max-width:740px){
+    .date-form-container{
+        input{
+            width: 70%;
+        }
+        button{
+            width: 70% !important;
+        }
+    }
     .items-container{
         grid-template-columns: 100% ;
         

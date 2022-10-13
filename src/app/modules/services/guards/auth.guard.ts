@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate, CanLoad {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean{
-
+    console.log("canActivate")
     if(this.authService.getSession()){
         return true;
       }else{
@@ -25,6 +25,7 @@ export class AuthGuard implements CanActivate, CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+      console.log("canLoad")
       if(this.authService.getSession()){
         return true;
       }else{

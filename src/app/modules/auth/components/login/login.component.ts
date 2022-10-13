@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
   logIn(){
     console.log(this.form)
     this.message = !this.authService.generateToken(this.form.get("user")?.value,this.form.get("password")?.value)
-    this.navigate.navigateByUrl("dashboard/main")
+    !this.message && this.navigate.navigateByUrl("dashboard/main")
+    
     console.log(this.authService.auth)
   }
 

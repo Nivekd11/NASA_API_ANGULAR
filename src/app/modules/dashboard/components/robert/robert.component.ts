@@ -1,5 +1,11 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
+import DialogHelper from 'src/app/modules/libs/helpers/dialog.helper';
+import ValidatorHelper from 'src/app/modules/libs/helpers/validator.helper';
 import { SearchService } from '../../services/search.service';
 
 @Component({
@@ -11,7 +17,14 @@ export class RobertComponent implements OnInit {
 
   public form!: FormGroup
   public items!: any
-  constructor(private search: SearchService) { }
+  public flag: boolean = false
+  constructor(private search: SearchService,public dialog: MatDialog,public activeRoute: ActivatedRoute) { 
+     this.activeRoute.data.subscribe(
+      (response:any)=>{
+        this.items= response.roverData
+      }
+     )
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -21,11 +34,22 @@ export class RobertComponent implements OnInit {
   }
 
   searchImage(){
+    if(ValidatorHelper.validateOneDay(this.form.get("dateT")?.value)){
+      this.search.searchRobert(this.form.get("dateT")?.value).subscribe(response => {
+        console.log(response)
+        this.flag=false
+        this.items=response
+      })
+    }else{
+        this.flag=true
+    }
     
-    this.search.searchRobert(this.form.get("dateT")?.value).subscribe(response => {
-      console.log(response)
-      this.items=response.photos
-    })
   }
+
+  openDialog(item:any){
+    DialogHelper.openDialog(item,this.dialog)
+  }
+
+
 
 }

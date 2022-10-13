@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../services/guards/auth.guard';
+import { ApodResolver } from '../services/resolver/apod.resolver';
+import { RoverResolver } from '../services/resolver/rover.resolver';
 import { ApodComponent } from './components/apod/apod.component';
 import { MainComponent } from './components/main/main.component';
 import { RobertComponent } from './components/robert/robert.component';
@@ -11,7 +13,10 @@ const routes: Routes = [{
     {
       path:'robert',
       component: RobertComponent,
-      canLoad: [AuthGuard]
+      canLoad: [AuthGuard],
+      resolve:{
+        roverData: RoverResolver
+      }
     },
     {
       path:'main',
@@ -21,7 +26,11 @@ const routes: Routes = [{
     },
     {
       path: 'apod',
-      component: ApodComponent
+      component: ApodComponent,
+      canLoad: [AuthGuard],
+      resolve:{
+        apodData: ApodResolver
+      }
     }
   ]
 }];

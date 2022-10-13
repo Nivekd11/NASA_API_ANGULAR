@@ -46,3 +46,26 @@ input[type="date"]{
     }
     
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-dialog-container{
+    background-color: #21242C;
+    color: aliceblue;
+    padding: 0 0 !important;
+    margin: 0 0 !important;
+}
+
+.pink-element{
+    color: #d0318e;
+}
+
+$breakpoint-tablet: 1280px;
+@media (max-width: $breakpoint-tablet ) or (max-height: 724px) {
+
+    .cdk-overlay-pane{
+        overflow-y: auto !important;
+    }
+  
+}

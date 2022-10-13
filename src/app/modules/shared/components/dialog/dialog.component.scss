@@ -1,0 +1,52 @@
+.banner-container{
+    
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1rem;
+    z-index: 1;
+    .banner{
+        object-position: center;
+        object-fit: cover;
+        height: 90%;
+        margin-bottom: 10px;
+        border-radius: 0.5rem;
+        transition: all 0.5s ease-in-out;
+        &:hover{
+            
+            -webkit-box-shadow: 10px 10px 17px -12px rgba(255,94,255,1);
+            -moz-box-shadow: 10px 10px 17px -12px rgba(255,94,255,1);
+            box-shadow: 10px 10px 17px -12px rgba(255,94,255,1);
+            transform: scale(1.05);
+    
+        }
+        
+    }
+    
+}
+
+.close-position{
+    justify-content: end;
+    margin-right: 1rem;
+    button{
+        all: unset;
+        border: none;
+        background-color: rgba(240, 248, 255, 0);
+        font-size: 25px;
+        margin-right: 20px;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.05)
+        }
+
+    }
+}
+
+.information-container{
+    padding: 1rem;
+    text-align: justify; 
+}
+
+

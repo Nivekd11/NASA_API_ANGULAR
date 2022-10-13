@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from '../shared/components/nav/nav.component';
 import { TimePipe } from '../libs/pipes/time.pipe';
 import { YouTubePlayerModule } from "@angular/youtube-player";
+import { ErrorSearchComponent } from '../shared/components/error-search/error-search.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,8 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
     RobertComponent,
     ApodComponent,
     NavComponent,
-    TimePipe
-    
+    TimePipe,
+    ErrorSearchComponent
   ],
   imports: [
     CommonModule,
