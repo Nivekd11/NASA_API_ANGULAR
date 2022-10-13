@@ -10,7 +10,11 @@
             </div>
             <div>
                 <label >Contraseña: </label>
-                <input type="text" placeholder="Escribe una contraseña" formControlName="password">
+                <span class="pass">
+                    <input [type]="inputPassword" placeholder="Escribe una contraseña" formControlName="password" #passInput>
+                    <img src="assets/img/eye.svg" alt="" (click)="changeType()">
+                </span>
+                
             </div> 
             <div *ngIf="message">
                 <p>El usuario y/o la contraseña son incorrectas</p>

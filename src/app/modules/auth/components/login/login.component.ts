@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   public form!: FormGroup
   public message:  boolean = false
   public buttonFlag: boolean = false
+  public passFlag: boolean =false
+  inputPassword:string="password"
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -31,6 +33,18 @@ export class LoginComponent implements OnInit {
     !this.message && this.navigate.navigateByUrl("dashboard/main")
     
     console.log(this.authService.auth)
+  }
+
+  changeType(){
+    
+    if(this.passFlag==false){
+      this.passFlag=true
+      this.inputPassword="text"
+    }
+    else{
+      this.passFlag=false
+      this.inputPassword="password"
+    }
   }
 
 }
